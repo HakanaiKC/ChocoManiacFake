@@ -1,0 +1,123 @@
+@import "../global.less";
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.logo {
+  margin: auto;
+}
+
+.layout-page,
+.layout-header {
+  background: none;
+  padding-top: 20px;
+}
+
+.header-menu {
+  border-bottom: none;
+  justify-content: center;
+  li {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  li:hover {
+    color: @chocoColor !important;
+  }
+  .ant-menu-item-selected {
+    color: @chocoColor !important;
+  }
+  .ant-menu-item-selected::after {
+    border-bottom-color: @chocoColor !important;
+  }
+  .ant-menu-item:hover::after {
+    border-bottom-color: @chocoColor !important;
+  }
+}
+
+.footer-menu {
+  text-align: center;
+  background-color: @veryDarkChocoColor;
+  li {
+    color: @cream;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  li:hover {
+    color: @chocoColor !important;
+  }
+  .ant-menu-item-selected {
+    color: @chocoColor !important;
+    background-color: @cream !important;
+  }
+  .ant-menu-item-selected::after {
+    border-bottom-color: @chocoColor !important;
+  }
+  .ant-menu-item:hover::after {
+    border-bottom-color: @chocoColor !important;
+  }
+}
+
+.footer {
+  background-color: @veryDarkChocoColor;
+  text-align: center;
+  font-family: "Crimson Text";
+  color: @cream;
+  .footer-des {
+    color: @cream;
+    font-size: 20px;
+    font-family: "Crimson Text";
+  }
+  .logo-footer {
+    border-bottom: 1px solid @cream;
+  }
+  .footer-heading {
+    color: @cream;
+    text-transform: uppercase;
+    font-family: "Crimson Text";
+  }
+  .address .ant-typography {
+    color: @cream;
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: "Crimson Text";
+  }
+  .address a:hover {
+    color: @chocoColor;
+  }
+  .icon-social a {
+    font-size: 35px;
+    margin: 0 10px;
+    color: @cream;
+    &:hover {
+      color: @chocoColor;
+    }
+  }
+}
+
+.about-footer {
+  color: @cream;
+  font-family: "Lobster";
+  font-size: 30px;
+}
+
+.bottom-footer {
+  border-top: 1px solid @cream;
+  color: @cream;
+  font-family: "Crimson Text";
+  font-size: 20px;
+}
+
+.row-footer {
+  margin-bottom: 16px;
+}
+
+.open-time-row .gutter-row .ant-typography {
+  color: @cream;
+  font-family: "Crimson Text";
+  font-size: 20px;
+}
