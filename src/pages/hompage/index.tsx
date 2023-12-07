@@ -10,8 +10,8 @@ const HomePage: React.FC = () => {
     <>
       <div className="slide" style={{ margin: "auto", marginTop: "50px" }}>
         <Carousel autoplay draggable dots={false} pauseOnHover>
-          <video src={video1} autoPlay loop muted></video>
           <video src={video2} autoPlay loop muted></video>
+          <video src={video1} autoPlay loop muted></video>
           <video src={video3} autoPlay loop muted></video>
           <video src={video4} autoPlay loop muted></video>
         </Carousel>
