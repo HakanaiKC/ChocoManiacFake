@@ -44,7 +44,15 @@ const items: MenuItemType[] = [
   },
 ];
 
-export const MenuComponentHeader = ({ mode, onClick, current }) => {
+export const MenuComponentHeader = ({
+  mode,
+  onClick,
+  current,
+}: {
+  mode: any;
+  onClick: any;
+  current: any;
+}) => {
   return (
     <Menu
       onClick={onClick}
