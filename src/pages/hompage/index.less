@@ -1,0 +1,131 @@
+@import "../global.less";
+
+.homepage-wrapper {
+  padding: 50px;
+  text-align: center;
+
+  .homepage-title {
+    h2 {
+      font-family: "Great Vibes";
+      letter-spacing: 5px;
+      font-size: 60px;
+      text-transform: capitalize;
+    }
+  }
+}
+.about-us {
+  background-image: url("../../assets/about/aboutBg.jpg");
+  background-size: cover;
+  background-position: center;
+  h2 {
+    color: @veryDarkChocoColor;
+  }
+  video {
+    height: 500px;
+    width: 100%;
+  }
+  .about-wrapper {
+    background-color: @chocoColor;
+    padding: 30px;
+    .ant-typography {
+      color: @cream;
+    }
+    h3 {
+      font-family: "Lobster";
+      font-size: 30px;
+    }
+    img {
+      width: 100px;
+    }
+  }
+}
+
+.chritsmas {
+  .ant-typography {
+    font-size: 30px;
+    font-family: "Great Vibes";
+    margin-bottom: 0;
+  }
+}
+
+.special-day {
+  background-image: url("../../assets/bg/pastryBg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: right;
+  .ant-typography {
+    color: @cream;
+    text-shadow: 2px 2px 0 @chocoColor;
+  }
+}
+.daily {
+  .product-img {
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    img {
+      transition: transform 1s ease;
+      width: 100%;
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+    .product-info {
+      position: absolute;
+      background-color: @orange;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      font-weight: 600;
+      top: 0;
+      left: 0;
+      max-width: 150px;
+      .ant-typography {
+        font-family: "Lobster";
+        font-size: 20px;
+        text-transform: capitalize;
+      }
+    }
+    .product-price {
+      position: absolute;
+      background-color: @orange;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      font-weight: 700;
+      top: 0;
+      right: 0;
+      border-radius: 50%;
+      margin: 10px;
+    }
+    &:hover {
+      .product-info,
+      .product-price {
+        opacity: 1;
+      }
+    }
+  }
+}
+.contact-hompage {
+  form {
+    padding: 0 50px;
+  }
+
+  .ant-form-item-label label {
+    font-size: 20px;
+  }
+
+  button {
+    border-color: @veryDarkChocoColor;
+    width: 200px;
+    margin-top: 30px;
+    background-color: @chocoColor;
+    color: @cream;
+    &:hover {
+      background-color: @cream;
+      color: @veryDarkChocoColor !important;
+      border-color: @veryDarkChocoColor !important;
+    }
+  }
+}

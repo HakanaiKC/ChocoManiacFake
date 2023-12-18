@@ -1,0 +1,56 @@
+{
+  "form": {
+    "name": "Họ tên không đúng định dạng",
+    "notEmpty": "Vui lòng không để trống trường này",
+    "email": "Email không đúng định dạng",
+    "phone": "Điện thoại không đúng định dạng",
+    "firstNameLabel": "Họ",
+    "lastNameLabel": "Tên",
+    "messageLabel": "Tin nhắn",
+    "submit": "Gửi tin nhắn"
+  },
+  "cart": {
+    "viewCart": "Giỏ hàng",
+    "checkout": "Thanh toán"
+  },
+  "common": {
+    "ok": "Đồng ý",
+    "search": "Tìm kiếm",
+    "cancel": "Hủy",
+    "locale": "viVn",
+    "christmas": "Giáng Sinh",
+    "birthday": "Sinh Nhật"
+  },
+  "header": {
+    "about": "Về chúng tôi",
+    "home": "Trang chủ",
+    "menu": "Thực đơn",
+    "product": "Sản phẩm",
+    "gallery": "Thư viện ảnh",
+    "contact": "Liên hệ",
+    "account": "Tài khoản",
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "register": "Đăng ký"
+  },
+  "homepage": {
+    "dailyCake": "Bánh hằng ngày",
+    "holidayPastries": "Bánh dịp đặc biệt",
+    "aboutDes": "Tận hưởng ngày lễ cùng những chiếc bánh ngọt được làm thủ công",
+    "searchPlaceholder": "Tìm kiếm...",
+    "search": "Tìm kiếm sản phẩm"
+  },
+  "footer": {
+    "openTimes": "Giờ mở cửa",
+    "day": "T2 - T7:",
+    "closed": "Đóng cửa",
+    "sunday": "Chủ Nhật:",
+    "preOrder": "Đặt bánh trước ít nhất 24 giờ",
+    "contact": "Liên hệ",
+    "address": "Địa chỉ",
+    "phone": "Điện thoại"
+  },
+  "errorPage": {
+    "error404": "Ôi không! Trang bạn truy cập không tồn tại."
+  }
+}

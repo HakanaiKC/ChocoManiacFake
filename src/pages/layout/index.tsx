@@ -1,35 +1,256 @@
-import { Col, Layout, MenuProps, Row } from "antd";
-import { Content, Footer, Header } from "antd/es/layout/layout";
-import DarkChocoLogo from "../../assets/logo/logo1.svg";
-import ChocoLogo from "../../assets/logo/logo2.svg";
 import "../layout/index.less";
+import {
+  Col,
+  Dropdown,
+  Layout,
+  MenuProps,
+  Row,
+  Select,
+  Space,
+  Typography,
+  FloatButton,
+  Divider,
+  Flex,
+  Button,
+  theme,
+  Drawer,
+} from "antd";
+import { Content, Footer, Header } from "antd/es/layout/layout";
+import ChocoLogo from "../../assets/logo/logo2.svg";
 import { Suspense, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Title from "antd/es/typography/Title";
 import Paragraph from "antd/es/typography/Paragraph";
 import Link from "antd/es/typography/Link";
-import { MenuComponentHeader } from "./menuComponent";
-import { FacebookFilled, InstagramFilled } from "@ant-design/icons";
+import { Link as LinkRouter } from "react-router-dom";
+import { MenuComponentHeader } from "../../components/menuComponent";
+import {
+  CloseOutlined,
+  FacebookFilled,
+  InstagramFilled,
+  MailFilled,
+  MenuOutlined,
+  PhoneFilled,
+  ShoppingCartOutlined,
+  UpOutlined,
+} from "@ant-design/icons";
+import { LANGUAGES } from "../../constants/languages/index";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../stores/store";
+import { setCurrentLink } from "../../stores/headerSlice";
+import daily1 from "../../assets/menu/daily/choco-set.jpg";
+import daily2 from "../../assets/menu/daily/chocoOrange-2.jpg";
+import daily3 from "../../assets/menu/daily/dark-oreo-2.jpg";
+import React from "react";
 
 const LayoutPage = () => {
-  const [current, setCurrent] = useState("home");
+  const { i18n, t } = useTranslation("global");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { useToken } = theme;
+  const { token } = useToken();
+  const current = useSelector((state: RootState) => state.header.setCurrent);
+  const [isDrawerOpen, setisDrawerOpen] = useState(false);
 
   const onClick: MenuProps["onClick"] = (e) => {
-    setCurrent(e.key);
+    dispatch(setCurrentLink(e.key));
+  };
+
+  const onChangeLang = (value: string) => {
+    i18n.changeLanguage(value);
+    dispatch(setCurrentLink(t("header.home")));
+  };
+
+  const productList = [
+    {
+      key: "1",
+      src: daily1,
+      name: "basque burnt cheesecake",
+      quantity: "2",
+      price: 120000,
+    },
+    {
+      key: "2",
+      src: daily2,
+      name: "choco orange",
+      quantity: "1",
+      price: 55000,
+    },
+    { key: "3", src: daily3, name: "dark oreo", quantity: "3", price: 65000 },
+  ];
+
+  const items: MenuProps["items"] = productList.map((product) => ({
+    key: product.key,
+    label: (
+      <Flex gap="middle">
+        <img src={product.src} width={"60px"} height={"60px"} />
+        <Flex gap="middle" vertical style={{ width: "100%" }}>
+          <Typography.Text strong style={{ textTransform: "capitalize" }}>
+            {product.name}
+          </Typography.Text>
+          <Typography.Paragraph>
+            {product.quantity} x {product.price}₫
+          </Typography.Paragraph>
+        </Flex>
+        <CloseOutlined />
+      </Flex>
+    ),
+  }));
+
+  const contentStyle: React.CSSProperties = {
+    backgroundColor: token.colorBgElevated,
+    borderRadius: token.borderRadiusLG,
+    boxShadow: token.boxShadowSecondary,
+  };
+
+  const menuStyle: React.CSSProperties = {
+    boxShadow: "none",
   };
 
   return (
     <Layout className="layout-page">
-      <div className="logo">
-        <img src={DarkChocoLogo} alt="ChocoManiac" style={{ width: "150px" }} />
+      <FloatButton.BackTop
+        style={{
+          width: 60,
+          height: 60,
+          backgroundColor: "#f6a56a",
+        }}
+        icon={<UpOutlined />}
+      />
+      <Header className="top-header">
+        <Row justify={"space-between"}>
+          <Col className="top-address" span={12}>
+            <Space>
+              <Paragraph className="top-header-contact">
+                <Link href="mailto:chocomaniaccake@gmail.com">
+                  <MailFilled /> chocomaniaccake@gmail.com
+                </Link>
+              </Paragraph>
+              <Paragraph className="top-header-contact">
+                <Link href="tel:0927519915">
+                  <PhoneFilled /> 092 751 99 15
+                </Link>
+              </Paragraph>
+            </Space>
+          </Col>
+          <Col className="right-col" span={12}>
+            <Dropdown
+              placement="bottom"
+              arrow
+              menu={{ items }}
+              dropdownRender={(menu) => (
+                <div style={contentStyle}>
+                  {React.cloneElement(menu as React.ReactElement, {
+                    style: menuStyle,
+                  })}
+                  <Divider style={{ margin: 0 }} />
+                  <Row style={{ padding: 8 }} gutter={10}>
+                    <Col span={12}>
+                      <LinkRouter
+                        to="/cart"
+                        onClick={() => dispatch(setCurrentLink(""))}
+                      >
+                        <Button
+                          block
+                          style={{
+                            backgroundColor: "#4b2d25",
+                            color: "#f3ede1",
+                            textTransform: "uppercase",
+                            fontWeight: "600",
+                          }}
+                        >
+                          {t("cart.viewCart")}
+                        </Button>
+                      </LinkRouter>
+                    </Col>
+                    <Col span={12}>
+                      <LinkRouter
+                        to="/checkout"
+                        onClick={() => dispatch(setCurrentLink(""))}
+                      >
+                        <Button
+                          block
+                          style={{
+                            backgroundColor: "#1b110f",
+                            color: "#f3ede1",
+                            textTransform: "uppercase",
+                            fontWeight: "600",
+                          }}
+                        >
+                          {t("cart.checkout")}
+                        </Button>
+                      </LinkRouter>
+                    </Col>
+                  </Row>
+                </div>
+              )}
+            >
+              <Link className="cart-icon">
+                <ShoppingCartOutlined style={{ fontSize: "25px" }} />
+                <Typography.Text className="cart-item-number" strong>
+                  99+
+                </Typography.Text>
+              </Link>
+            </Dropdown>
+
+            <LinkRouter
+              className="login-link"
+              to="/login"
+              onClick={() => dispatch(setCurrentLink(""))}
+            >
+              {t("header.login")}
+            </LinkRouter>
+            <LinkRouter
+              className="register-link"
+              to="/register"
+              onClick={() => dispatch(setCurrentLink(""))}
+            >
+              {t("header.register")}
+            </LinkRouter>
+            <Select
+              defaultValue={i18n.language}
+              style={{ width: "120px" }}
+              onChange={onChangeLang}
+              options={LANGUAGES.map(({ value, label }) => ({ value, label }))}
+            />
+          </Col>
+        </Row>
+      </Header>
+      <div className="logo-wrapper">
+        <img
+          src={ChocoLogo}
+          alt="ChocoManiac"
+          className="logo"
+          onClick={() => {
+            dispatch(setCurrentLink(t("header.home"))), navigate("/");
+          }}
+          style={{ cursor: "pointer" }}
+        />
       </div>
       <Header className="layout-header">
+        <MenuComponentHeader inLine onClick={onClick} current={current} />
+      </Header>
+
+      <Header className="button-hamburger">
+        <Button onClick={() => setisDrawerOpen(true)}>
+          <MenuOutlined />
+        </Button>
+      </Header>
+
+      <Drawer
+        placement="right"
+        onClose={() => setisDrawerOpen(false)}
+        open={isDrawerOpen}
+        className="menu-hamburger"
+      >
         <MenuComponentHeader
-          mode="horizontal"
+          inLine={false}
           onClick={onClick}
           current={current}
         />
-      </Header>
+      </Drawer>
+
       <Content className="layout-page-content">
         <Suspense fallback={null}>
           <Outlet />
@@ -37,7 +258,7 @@ const LayoutPage = () => {
       </Content>
       <Footer className="footer">
         <div className="logo-footer">
-          <img src={ChocoLogo} alt="ChocoManiac" style={{ width: "150px" }} />
+          <img src={ChocoLogo} alt="ChocoManiac" className="logo" />
           <p className="footer-des">A tiny space for Chocoholics</p>
         </div>
         <div className="row-footer">
@@ -45,20 +266,27 @@ const LayoutPage = () => {
             <Col className="gutter-row" span={8}>
               <div className="open">
                 <Title level={3} className="footer-heading">
-                  Open times
+                  {t("footer.openTimes")}
                 </Title>
                 <Row className="open-time-row">
                   <Col className="gutter-row" span={12}>
-                    <Paragraph>T2, T3, T4, T7:</Paragraph>
-                    <Paragraph>T5, T6:</Paragraph>
-                    <Paragraph>Chủ Nhật:</Paragraph>
+                    <Paragraph>{t("footer.day")}</Paragraph>
                   </Col>
                   <Col className="gutter-row" span={12}>
-                    <Paragraph>09:00 - 17:00</Paragraph>
                     <Paragraph>09:00 - 20:00</Paragraph>
-                    <Paragraph>CLOSED</Paragraph>
                   </Col>
                 </Row>
+                <Row className="open-time-row">
+                  <Col className="gutter-row" span={12}>
+                    <Paragraph>{t("footer.sunday")}</Paragraph>
+                  </Col>
+                  <Col className="gutter-row" span={12}>
+                    <Paragraph>{t("footer.closed")}</Paragraph>
+                  </Col>
+                </Row>
+                <Paragraph className="warn-heading">
+                  {t("footer.preOrder")}
+                </Paragraph>
               </div>
             </Col>
 
@@ -80,16 +308,16 @@ const LayoutPage = () => {
             <Col className="gutter-row" span={8}>
               <div className="contact">
                 <Title level={3} className="footer-heading">
-                  Contact
+                  {t("footer.contact")}
                 </Title>
                 <div className="address">
                   <Paragraph>
-                    Address:
+                    {t("footer.address")}:
                     <Link
-                      href="https://maps.app.goo.gl/WgdrSftUupZSdXfe7"
+                      href="https://maps.app.goo.gl/DW2iqRcpwZ5Znz1K8"
                       target="_blank"
                     >
-                      Hai Bà Trưng, Hà Nội
+                      7 Trần Thánh Tông, P. Bạch Đằng, Hai Bà Trưng, Hà Nội
                     </Link>
                   </Paragraph>
                   <Paragraph>
@@ -99,7 +327,7 @@ const LayoutPage = () => {
                     </Link>
                   </Paragraph>
                   <Paragraph>
-                    Phone:
+                    {t("footer.phone")}:
                     <Link href="tel:0927519915">092 751 99 15</Link>
                   </Paragraph>
                 </div>
@@ -108,7 +336,7 @@ const LayoutPage = () => {
           </Row>
         </div>
         <div className="bottom-footer">
-          <p>© 2024 Le Kim Cuong, All Rights Reserved</p>
+          <p>© 2024 CuongLK, All Rights Reserved</p>
         </div>
       </Footer>
     </Layout>

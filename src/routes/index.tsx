@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { RouteObject, useRoutes } from "react-router-dom";
+import Cart from "../pages/cart";
 const LayoutPage = lazy(() => import("../pages/layout"));
 const ErrorPage = lazy(() => import("../pages/404/404"));
 const Homepage = lazy(() => import("../pages/hompage"));
@@ -34,7 +35,7 @@ const routesList: RouteObject[] = [
         element: <AboutUs />,
       },
       {
-        path: "/products/list",
+        path: "/products",
         element: <ProductDetail />,
       },
       {
@@ -80,6 +81,10 @@ const routesList: RouteObject[] = [
       {
         path: "/menu",
         element: <Menu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

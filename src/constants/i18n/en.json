@@ -1,0 +1,56 @@
+{
+  "form": {
+    "name": "Invalid format for full name",
+    "notEmpty": "This field is required",
+    "email": "Invalid email format",
+    "phone": "Invalid phone number format",
+    "firstNameLabel": "First name",
+    "lastNameLabel": "Last name",
+    "messageLabel": "Message",
+    "submit": "Send Message"
+  },
+  "cart": {
+    "viewCart": "View Cart",
+    "checkout": "Checkout"
+  },
+  "common": {
+    "ok": "Confirm",
+    "search": "Search",
+    "cancel": "Cancel",
+    "locale": "enUs",
+    "christmas": "Christmas",
+    "birthday": "Birthday"
+  },
+  "header": {
+    "about": "About Us",
+    "home": "Home",
+    "menu": "Menu",
+    "product": "Product",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "account": "Account",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register"
+  },
+  "homepage": {
+    "dailyCake": "Daily Cake",
+    "holidayPastries": "Holiday Pastries",
+    "aboutDes": "Savor the festive spirit with our Holiday Pastries, handcrafted for joyous occasions",
+    "searchPlaceholder": "Search...",
+    "search": "Find product"
+  },
+  "footer": {
+    "openTimes": "Open times",
+    "day": "Monday to Saturday:",
+    "closed": "Closed",
+    "sunday": "Sunday:",
+    "preOrder": "Pre-order at least 24h",
+    "contact": "Contact",
+    "address": "Address",
+    "phone": "Phone"
+  },
+  "errorPage": {
+    "error404": "Sorry, the page you visited does not exist."
+  }
+}
