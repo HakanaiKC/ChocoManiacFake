@@ -1,3 +1,4 @@
+import "./masonry.less";
 import { Typography, Space } from "antd";
 import Masonry from "react-layout-masonry";
 import { Link } from "react-router-dom";

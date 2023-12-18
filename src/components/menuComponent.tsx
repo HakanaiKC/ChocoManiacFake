@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "./modalSearch.less";
+import { useDispatch } from "react-redux";
+import { setCurrentLink } from "../stores/headerSlice";
 
 export const MenuComponentHeader = ({
   onClick,
@@ -15,6 +17,7 @@ export const MenuComponentHeader = ({
   inLine: boolean;
 }) => {
   const { t } = useTranslation("global");
+  const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   const menuItems = [
     { key: t("header.home"), path: "/", label: t("header.home") },
@@ -27,7 +30,7 @@ export const MenuComponentHeader = ({
     {
       key: "search",
       onClick: () => setModalOpen(true),
-      icon: <SearchOutlined style={{ fontSize: "20px" }} />,
+      icon: <SearchOutlined style={{ fontSize: "1.25em" }} />,
     },
   ];
   return (
@@ -44,6 +47,25 @@ export const MenuComponentHeader = ({
             {item.path ? <Link to={item.path}>{item.label}</Link> : item.icon}
           </Menu.Item>
         ))}
+
+        <Menu.Item>
+          <Link
+            className="login-link"
+            to="/login"
+            onClick={() => dispatch(setCurrentLink(""))}
+          >
+            {t("header.login")}
+          </Link>
+        </Menu.Item>
+        <Menu.Item>
+          <Link
+            className="register-link"
+            to="/register"
+            onClick={() => dispatch(setCurrentLink(""))}
+          >
+            {t("header.register")}
+          </Link>
+        </Menu.Item>
       </Menu>
       <Modal
         className="modal-search"
@@ -81,7 +103,6 @@ export const MenuComponentHeader = ({
           prefix={<SearchOutlined />}
         />
       </Modal>
-      ;
     </>
   );
 };

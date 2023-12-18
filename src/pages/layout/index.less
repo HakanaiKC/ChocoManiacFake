@@ -41,7 +41,7 @@ body {
   button {
     background-color: @DarkerchocoColor;
     color: @cream;
-    font-size: 20px;
+    font-size: 1.25em;
     height: auto;
     margin-top: 10px;
     &:hover {
@@ -61,18 +61,18 @@ body {
 
   .top-header-contact a {
     color: @cream;
-    font-size: 15px;
+    font-size: 1em;
     &:hover {
       color: @orange;
     }
   }
 
   .right-col {
-    text-align: end;
+    text-align: right;
     & > a {
       color: @cream;
       margin-right: 30px;
-      font-size: 16px;
+      font-size: 1em;
       &:hover {
         color: @orange;
       }
@@ -80,10 +80,14 @@ body {
         color: @veryDarkChocoColor;
         background-color: @orange;
         border-radius: 50%;
-        font-size: 10px;
+        font-size: 0.6em;
         padding: 5px;
       }
     }
+  }
+
+  .ant-select-selector {
+    text-align: left;
   }
 }
 
@@ -92,7 +96,7 @@ body {
   justify-content: center;
   li {
     color: #000;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 600;
     text-transform: uppercase;
   }
@@ -108,6 +112,11 @@ body {
   .ant-menu-item:hover::after {
     border-bottom-color: @chocoColor !important;
   }
+
+  .login-link,
+  .register-link {
+    display: none;
+  }
 }
 
 .footer {
@@ -117,7 +126,7 @@ body {
   color: @cream;
   .footer-des {
     color: @cream;
-    font-size: 20px;
+    font-size: 1.25em;
     font-family: "Montserrat";
   }
   .logo-footer {
@@ -134,14 +143,14 @@ body {
   .address .ant-typography {
     color: @cream;
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 1.25em;
     font-family: "Montserrat";
   }
   .address a:hover {
     color: @orange;
   }
   .icon-social a {
-    font-size: 35px;
+    font-size: 2em;
     margin: 0 10px;
     color: @cream;
     &:hover {
@@ -152,19 +161,19 @@ body {
   .warn-heading {
     color: @cream;
     font-family: "Lobster";
-    font-size: 30px;
+    font-size: 1.8em;
   }
   .about-footer {
     color: @cream;
     font-family: "Lobster";
-    font-size: 30px;
+    font-size: 1.8em;
   }
 
   .bottom-footer {
     border-top: 1px solid @cream;
     color: @cream;
     font-family: "Montserrat";
-    font-size: 20px;
+    font-size: 1.25em;
   }
 
   .row-footer {
@@ -174,7 +183,39 @@ body {
   .open-time-row .gutter-row .ant-typography {
     color: @cream;
     font-family: "Montserrat";
-    font-size: 20px;
+    font-size: 1.25em;
+  }
+}
+
+.button-hamburger-top {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .open-time-row {
+    .right-col {
+      .ant-typography {
+        text-align: left;
+      }
+    }
+    .left-col {
+      .ant-typography {
+        text-align: end;
+      }
+    }
+  }
+  .row-footer {
+    .open-time-order {
+      order: 1;
+    }
+
+    .address-order {
+      order: 2;
+    }
+
+    .about-footer-order {
+      order: 3;
+    }
   }
 }
 
@@ -189,12 +230,34 @@ body {
   .button-hamburger {
     display: block;
   }
+  .header-menu {
+    .login-link,
+    .register-link {
+      display: block;
+    }
+  }
 }
 
 @media screen and (max-width: 425px) {
+  .top-header {
+    .top-address {
+      display: none;
+    }
+  }
+
+  .button-hamburger {
+    display: none;
+  }
+
+  .button-hamburger-top {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 375px) {
+  .top-header .right-col > a {
+    margin-right: 10px;
+  }
 }
 
 @media screen and (max-width: 320px) {

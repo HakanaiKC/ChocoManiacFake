@@ -120,7 +120,7 @@ const LayoutPage = () => {
       />
       <Header className="top-header">
         <Row justify={"space-between"}>
-          <Col className="top-address" span={12}>
+          <Col className="top-address" xxl={12} xl={12} md={12}>
             <Space>
               <Paragraph className="top-header-contact">
                 <Link href="mailto:chocomaniaccake@gmail.com">
@@ -134,7 +134,12 @@ const LayoutPage = () => {
               </Paragraph>
             </Space>
           </Col>
-          <Col className="right-col" span={12}>
+          <Col className="button-hamburger-top" xs={5} sm={5}>
+            <Button onClick={() => setisDrawerOpen(true)}>
+              <MenuOutlined />
+            </Button>
+          </Col>
+          <Col className="right-col" xxl={12} xl={12} md={12} xs={19} sm={19}>
             <Dropdown
               placement="bottom"
               arrow
@@ -146,7 +151,7 @@ const LayoutPage = () => {
                   })}
                   <Divider style={{ margin: 0 }} />
                   <Row style={{ padding: 8 }} gutter={10}>
-                    <Col span={12}>
+                    <Col xxl={12} xl={12} md={12} xs={24} sm={24}>
                       <LinkRouter
                         to="/cart"
                         onClick={() => dispatch(setCurrentLink(""))}
@@ -164,7 +169,7 @@ const LayoutPage = () => {
                         </Button>
                       </LinkRouter>
                     </Col>
-                    <Col span={12}>
+                    <Col xxl={12} xl={12} md={12} xs={24} sm={24}>
                       <LinkRouter
                         to="/checkout"
                         onClick={() => dispatch(setCurrentLink(""))}
@@ -187,7 +192,7 @@ const LayoutPage = () => {
               )}
             >
               <Link className="cart-icon">
-                <ShoppingCartOutlined style={{ fontSize: "25px" }} />
+                <ShoppingCartOutlined style={{ fontSize: "1.5em" }} />
                 <Typography.Text className="cart-item-number" strong>
                   99+
                 </Typography.Text>
@@ -263,24 +268,56 @@ const LayoutPage = () => {
         </div>
         <div className="row-footer">
           <Row>
-            <Col className="gutter-row" span={8}>
+            <Col
+              className="gutter-row open-time-order"
+              xxl={8}
+              xl={8}
+              md={24}
+              xs={24}
+            >
               <div className="open">
                 <Title level={3} className="footer-heading">
                   {t("footer.openTimes")}
                 </Title>
                 <Row className="open-time-row">
-                  <Col className="gutter-row" span={12}>
+                  <Col
+                    className="gutter-row left-col"
+                    xxl={12}
+                    xl={12}
+                    md={11}
+                    xs={11}
+                  >
                     <Paragraph>{t("footer.day")}</Paragraph>
                   </Col>
-                  <Col className="gutter-row" span={12}>
+                  <Col xxl={0} xl={0} md={1} xs={1}></Col>
+                  <Col
+                    className="gutter-row right-col"
+                    xxl={12}
+                    xl={12}
+                    md={12}
+                    xs={12}
+                  >
                     <Paragraph>09:00 - 20:00</Paragraph>
                   </Col>
                 </Row>
                 <Row className="open-time-row">
-                  <Col className="gutter-row" span={12}>
+                  <Col
+                    className="gutter-row left-col"
+                    xxl={12}
+                    xl={12}
+                    md={11}
+                    xs={11}
+                  >
                     <Paragraph>{t("footer.sunday")}</Paragraph>
                   </Col>
-                  <Col className="gutter-row" span={12}>
+                  <Col xxl={0} xl={0} md={1} xs={1}></Col>
+                  <Col
+                    className="gutter-row right-col"
+                    xxl={12}
+                    xl={12}
+                    md={12}
+                    xs={12}
+                  >
                     <Paragraph>{t("footer.closed")}</Paragraph>
                   </Col>
                 </Row>
@@ -290,7 +327,14 @@ const LayoutPage = () => {
               </div>
             </Col>
 
-            <Col className="gutter-row" span={8} style={{ marginTop: "16px" }}>
+            <Col
+              className="gutter-row about-footer-order"
+              xxl={8}
+              xl={8}
+              md={24}
+              xs={24}
+              style={{ marginTop: "16px" }}
+            >
               <div className="about">
                 <Paragraph className="about-footer">
                   Don't be shy if you are too Choco-NUTS
@@ -305,7 +349,14 @@ const LayoutPage = () => {
                 </div>
               </div>
             </Col>
-            <Col className="gutter-row" span={8}>
+
+            <Col
+              className="gutter-row address-order"
+              xxl={8}
+              xl={8}
+              md={24}
+              xs={24}
+            >
               <div className="contact">
                 <Title level={3} className="footer-heading">
                   {t("footer.contact")}

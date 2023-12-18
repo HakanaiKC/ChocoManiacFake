@@ -35,9 +35,9 @@ const HomePage: React.FC = () => {
   return (
     <>
       <div className="slide" style={{ margin: "auto" }}>
-        <Carousel autoplay draggable pauseOnHover>
-          <video src={video2} autoPlay loop muted />
-          <video src={video1} autoPlay loop muted />
+        <Carousel autoplay draggable pauseOnHover autoplaySpeed={5000}>
+          <video src={video2} autoPlay muted />
+          <video src={video1} autoPlay muted />
           <video src={video3} autoPlay loop muted />
           <video src={video4} autoPlay loop muted />
         </Carousel>
@@ -56,31 +56,27 @@ const HomePage: React.FC = () => {
           <Typography.Title level={2}>{t("header.about")}</Typography.Title>
         </div>
 
-        <Row align={"middle"}>
-          <Col xxl={12} xl={12}>
-            <video src={aboutVid} autoPlay loop muted />
-          </Col>
-          <Col xxl={12} xl={12}>
-            <Space direction="vertical" className="about-wrapper">
-              <img src={logo} alt="ChocoManiacFake" />
-              <Typography.Title level={3}>ChocoManiacFake</Typography.Title>
-              <Typography.Text>
-                Chocomaniac (est.2020) được sinh ra từ một chiếc chủ đam mê
-                chocolate rất nhiều.
-              </Typography.Text>
-              <Typography.Text>
-                Ở đây Tớ bán đồ ngọt làm từ chocolate
-              </Typography.Text>
-              <Typography.Text>
-                Hãy đến với Tớ để thảo mãn cơn "nghiện" chocolate bằng cả trái
-                tim nhé
-              </Typography.Text>
-              <Typography.Text italic>
-                "The Treats for Your Happiness"
-              </Typography.Text>
-            </Space>
-          </Col>
-        </Row>
+        <div className="about-flex">
+          <video src={aboutVid} autoPlay loop muted />
+          <Space direction="vertical" className="about-wrapper">
+            <img src={logo} alt="ChocoManiacFake" />
+            <Typography.Title level={3}>ChocoManiacFake</Typography.Title>
+            <Typography.Text>
+              Chocomaniac (est.2020) được sinh ra từ một chiếc chủ đam mê
+              chocolate rất nhiều.
+            </Typography.Text>
+            <Typography.Text>
+              Ở đây Tớ bán đồ ngọt làm từ chocolate
+            </Typography.Text>
+            <Typography.Text>
+              Hãy đến với Tớ để thảo mãn cơn "nghiện" chocolate bằng cả trái tim
+              nhé
+            </Typography.Text>
+            <Typography.Text italic>
+              "The Treats for Your Happiness"
+            </Typography.Text>
+          </Space>
+        </div>
       </div>
       <div className="homepage-wrapper special-day">
         <div className="homepage-title">
@@ -91,43 +87,22 @@ const HomePage: React.FC = () => {
             {t("homepage.aboutDes")}
           </Typography.Title>
         </div>
-        <Space size={50} style={{ marginTop: "20px" }}>
-          <div className="chritsmas">
+        <div className="holiday-wrapper">
+          <div className="holiday-items-wrapper">
             <Typography.Paragraph>{t("common.christmas")}</Typography.Paragraph>
-            <video
-              src={giangSinhVid}
-              autoPlay
-              loop
-              muted
-              width={"100%"}
-              height={"500px"}
-            />
+            <video src={giangSinhVid} autoPlay loop muted />
           </div>
 
-          <div className="chritsmas">
+          <div className="holiday-items-wrapper">
             <Typography.Paragraph>Valentine</Typography.Paragraph>
-            <video
-              src={valentineVid}
-              autoPlay
-              loop
-              muted
-              width={"100%"}
-              height={"500px"}
-            />
+            <video src={valentineVid} autoPlay loop muted />
           </div>
 
-          <div className="chritsmas">
+          <div className="holiday-items-wrapper">
             <Typography.Paragraph>{t("common.birthday")}</Typography.Paragraph>
-            <video
-              src={birthdayVid}
-              autoPlay
-              loop
-              muted
-              width={"100%"}
-              height={"500px"}
-            />
+            <video src={birthdayVid} autoPlay loop muted />
           </div>
-        </Space>
+        </div>
       </div>
       <div className="homepage-wrapper contact-hompage">
         <div className="homepage-title">
