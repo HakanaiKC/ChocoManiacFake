@@ -1,5 +1,4 @@
 import i18n from "i18next";
-import i18nBackend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
 import global_en from "../constants/i18n/en.json";
 import global_vi from "../constants/i18n/vi.json";
