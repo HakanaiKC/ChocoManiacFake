@@ -13,12 +13,7 @@
     }
   }
 }
-.slide {
-  padding: 0 50px;
-  video {
-    height: 600px;
-  }
-}
+
 .about-us {
   background-image: url("../../assets/about/aboutBg.jpg");
   background-size: cover;
@@ -29,23 +24,21 @@
   video {
     height: 500px;
   }
-  .about-flex {
-    display: inline-flex;
-    align-items: center;
-    .about-wrapper {
-      background-color: @chocoColor;
-      padding: 30px;
-      width: 100%;
-      .ant-typography {
-        color: @cream;
-      }
-      h3 {
-        font-family: "Lobster";
-        font-size: 2em;
-      }
-      img {
-        width: 100px;
-      }
+
+  .about-wrapper {
+    background-color: @chocoColor;
+    padding: 30px;
+    width: 600px;
+    margin-top: -20px;
+    .ant-typography {
+      color: @cream;
+    }
+    h3 {
+      font-family: "Lobster";
+      font-size: 2em;
+    }
+    img {
+      width: 100px;
     }
   }
 }
@@ -67,7 +60,7 @@
     }
   }
 }
-.daily {
+.contact-hompage {
   background-image: url("../../assets/bg/dailyBg.jpg");
   background-position: center;
   background-size: cover;
@@ -76,6 +69,9 @@
     h4 {
       color: @cream;
     }
+  }
+  .ant-form-item-label label {
+    color: @cream;
   }
 }
 .special-day {
@@ -122,8 +118,10 @@
 }
 
 @media screen and (max-width: 768px) {
-  .about-us .about-wrapper {
-    padding: 19.5px;
+  .about-us {
+    .about-wrapper {
+      padding: 19.5px;
+    }
   }
 
   .special-day {
@@ -143,7 +141,12 @@
     padding: 10px;
   }
 
-  .about-us .about-flex,
+  .about-us .about-wrapper {
+    width: 400px;
+    margin-bottom: 30px;
+  }
+
+  .about-us,
   .holiday-wrapper {
     display: block;
   }
@@ -176,7 +179,13 @@
 }
 
 @media screen and (max-width: 375px) {
+  .about-us .about-wrapper {
+    width: 350px;
+  }
 }
 
 @media screen and (max-width: 320px) {
+  .about-us .about-wrapper {
+    width: 300px;
+  }
 }

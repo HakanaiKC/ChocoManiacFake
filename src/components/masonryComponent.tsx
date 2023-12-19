@@ -1,37 +1,65 @@
 import "./masonry.less";
 import { Typography, Space } from "antd";
+import { useState, useEffect } from "react";
 import Masonry from "react-layout-masonry";
 import { Link } from "react-router-dom";
-import daily1 from "../assets/menu/daily/choco-set.jpg";
-import daily2 from "../assets/menu/daily/chocoOrange-2.jpg";
-import daily3 from "../assets/menu/daily/dark-oreo-2.jpg";
-import daily4 from "../assets/menu/daily/double-chocolate.jpg";
-import daily5 from "../assets/menu/daily/tiramisu-cup-1.jpg";
-import daily6 from "../assets/menu/daily/red-velvet-roll-2.jpg";
-import daily7 from "../assets/menu/daily/brownie-2.jpg";
-import daily8 from "../assets/menu/daily/daily-cup-red-velvet.png";
+
+const items = [
+  {
+    src: () => import("../assets/menu/daily/choco-set.jpg"),
+    name: "basque burnt cheesecake",
+    price: "62k/pc",
+    additional: "120k/set",
+  },
+  {
+    src: () => import("../assets/menu/daily/chocoOrange-2.jpg"),
+    name: "choco orange",
+    price: "55k/2pcs",
+  },
+  {
+    src: () => import("../assets/menu/daily/dark-oreo-2.jpg"),
+    name: "dark oreo",
+    price: "65k/box",
+  },
+  {
+    src: () => import("../assets/menu/daily/double-chocolate.jpg"),
+    name: "double chocolate cup",
+    price: "50k/2pcs",
+  },
+  {
+    src: () => import("../assets/menu/daily/tiramisu-cup-1.jpg"),
+    name: "chocomisu",
+    price: "55k",
+  },
+  {
+    src: () => import("../assets/menu/daily/red-velvet-roll-2.jpg"),
+    name: "red & roll",
+    price: "65k/box",
+  },
+  {
+    src: () => import("../assets/menu/daily/brownie-2.jpg"),
+    name: "cheese brownies",
+    price: "75k/box",
+    additional: "150g - 180g",
+  },
+  {
+    src: () => import("../assets/menu/daily/daily-cup-red-velvet.png"),
+    name: "red velvet",
+    price: "55k",
+  },
+];
 
 const MansoryComponent = () => {
-  const items = [
-    {
-      src: daily1,
-      name: "basque burnt cheesecake",
-      price: "62k/pc",
-      additional: "120k/set",
-    },
-    { src: daily2, name: "choco orange", price: "55k/2pcs" },
-    { src: daily3, name: "dark oreo", price: "65k/box" },
-    { src: daily4, name: "double chocolate cup", price: "50k/2pcs" },
-    { src: daily5, name: "chocomisu", price: "55k" },
-    { src: daily6, name: "red & roll", price: "65k/box" },
-    {
-      src: daily7,
-      name: "cheese brownies",
-      price: "75k/box",
-      additional: "150g - 180g",
-    },
-    { src: daily8, name: "red velvet", price: "55k" },
-  ];
+  const [images, setImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    // Load all images asynchronously
+    Promise.all(
+      items.map((item) => item.src().then((module) => module.default))
+    )
+      .then((loadedImages) => setImages(loadedImages))
+      .catch((error) => console.error("Error loading images:", error));
+  }, []);
 
   return (
     <Masonry
@@ -39,18 +67,20 @@ const MansoryComponent = () => {
       gap={16}
       style={{ marginTop: "50px" }}
     >
-      {items.map((item, index) => (
+      {images.map((src, index) => (
         <div className="product-img" key={index}>
           <Link to={`/products`}>
-            <img src={item.src} alt={item.name} />
+            <img src={src} alt={items[index].name} />
             <div className="product-info">
-              <Typography.Text>{item.name}</Typography.Text>
+              <Typography.Text>{items[index].name}</Typography.Text>
             </div>
             <div className="product-price">
               <Space direction="vertical">
-                <Typography.Text italic>{item.price}</Typography.Text>
-                {item.additional && (
-                  <Typography.Text strong>{item.additional}</Typography.Text>
+                <Typography.Text italic>{items[index].price}</Typography.Text>
+                {items[index].additional && (
+                  <Typography.Text strong>
+                    {items[index].additional}
+                  </Typography.Text>
                 )}
               </Space>
             </div>

@@ -26,6 +26,7 @@ export const MenuComponentHeader = ({
     { key: t("header.contact"), path: "/contact", label: t("header.contact") },
     { key: t("header.account"), path: "/account", label: t("header.account") },
   ];
+
   return (
     <>
       <Menu
@@ -40,6 +41,7 @@ export const MenuComponentHeader = ({
             <Link to={item.path}>{item.label}</Link>
           </Menu.Item>
         ))}
+
         <Menu.Item>
           <Link
             className="login-link"
