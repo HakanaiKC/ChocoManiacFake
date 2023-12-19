@@ -35,10 +35,10 @@ const HomePage: React.FC = () => {
     <>
       <div className="slide" style={{ margin: "auto" }}>
         <Carousel autoplay draggable pauseOnHover autoplaySpeed={9000}>
-          <video src={video2} autoPlay loop muted />
-          <video src={video1} autoPlay loop muted />
-          <video src={video3} autoPlay loop muted />
-          <video src={video4} autoPlay loop muted />
+          <video src={video2} autoPlay loop muted playsInline />
+          <video src={video1} autoPlay loop muted playsInline />
+          <video src={video3} autoPlay loop muted playsInline />
+          <video src={video4} autoPlay loop muted playsInline />
         </Carousel>
       </div>
       <div className="homepage-wrapper daily">
