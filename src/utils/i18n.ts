@@ -2,6 +2,8 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import global_en from "../constants/i18n/en.json";
 import global_vi from "../constants/i18n/vi.json";
+import global_jp from "../constants/i18n/jp.json";
+import global_kr from "../constants/i18n/kr.json";
 
 //validate if we are in development mode or not, in order to add the correct host.
 // const getCurrentHost =
@@ -27,6 +29,12 @@ i18n.use(initReactI18next).init({
     },
     vi: {
       global: global_vi,
+    },
+    jp: {
+      global: global_jp,
+    },
+    kr: {
+      global: global_kr,
     },
   },
   //i18nBackend: receives an object, which we will access to the loadPath property.

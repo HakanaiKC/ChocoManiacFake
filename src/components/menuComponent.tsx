@@ -1,9 +1,7 @@
-import { SearchOutlined } from "@ant-design/icons";
-import { Button, Input, Menu, Modal, Typography } from "antd";
-import { useState } from "react";
+import "./modalSearch.less";
+import { Menu } from "antd";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import "./modalSearch.less";
 import { useDispatch } from "react-redux";
 import { setCurrentLink } from "../stores/headerSlice";
 
@@ -18,7 +16,7 @@ export const MenuComponentHeader = ({
 }) => {
   const { t } = useTranslation("global");
   const dispatch = useDispatch();
-  const [modalOpen, setModalOpen] = useState(false);
+
   const menuItems = [
     { key: t("header.home"), path: "/", label: t("header.home") },
     { key: t("header.about"), path: "/about", label: t("header.about") },
@@ -27,11 +25,6 @@ export const MenuComponentHeader = ({
     { key: t("header.gallery"), path: "/gallery", label: t("header.gallery") },
     { key: t("header.contact"), path: "/contact", label: t("header.contact") },
     { key: t("header.account"), path: "/account", label: t("header.account") },
-    {
-      key: "search",
-      onClick: () => setModalOpen(true),
-      icon: <SearchOutlined style={{ fontSize: "1.25em" }} />,
-    },
   ];
   return (
     <>
@@ -43,11 +36,10 @@ export const MenuComponentHeader = ({
         selectedKeys={[current]}
       >
         {menuItems.map((item) => (
-          <Menu.Item key={item.key} onClick={item.onClick}>
-            {item.path ? <Link to={item.path}>{item.label}</Link> : item.icon}
+          <Menu.Item key={item.key}>
+            <Link to={item.path}>{item.label}</Link>
           </Menu.Item>
         ))}
-
         <Menu.Item>
           <Link
             className="login-link"
@@ -67,42 +59,6 @@ export const MenuComponentHeader = ({
           </Link>
         </Menu.Item>
       </Menu>
-      <Modal
-        className="modal-search"
-        title={
-          <Typography.Title level={3} className="modal-header">
-            {t("homepage.search")}
-          </Typography.Title>
-        }
-        centered
-        open={modalOpen}
-        onCancel={() => setModalOpen(false)}
-        footer={[
-          <div className="button-modal-group">
-            <Button
-              key="cancel"
-              onClick={() => setModalOpen(false)}
-              className="cancelButton"
-            >
-              {t("common.cancel")}
-            </Button>
-            ,
-            <Button
-              key="submit"
-              className="searchButton"
-              onClick={() => setModalOpen(false)}
-            >
-              {t("common.search")}
-            </Button>
-          </div>,
-        ]}
-      >
-        <Input
-          size="large"
-          placeholder={t("homepage.searchPlaceholder")}
-          prefix={<SearchOutlined />}
-        />
-      </Modal>
     </>
   );
 };

@@ -94,7 +94,9 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="holiday-items-wrapper">
-            <Typography.Paragraph>Valentine</Typography.Paragraph>
+            <Typography.Paragraph>
+              {t("homepage.valentine")}
+            </Typography.Paragraph>
             <video src={valentineVid} autoPlay loop muted />
           </div>
 
@@ -184,7 +186,7 @@ const HomePage: React.FC = () => {
               <TextArea rows={5} />
             </Form.Item>
             <Form.Item>
-              <Button htmlType="submit" size="large">
+              <Button htmlType="submit" size="large" className="btn-form">
                 {t("form.submit")}
               </Button>
             </Form.Item>

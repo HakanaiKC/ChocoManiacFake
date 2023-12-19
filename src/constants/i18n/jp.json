@@ -1,0 +1,57 @@
+{
+  "form": {
+    "name": "フルネームの形式が無効です",
+    "notEmpty": "このフィールドは必須です",
+    "email": "メールの形式が無効です",
+    "phone": "電話番号の形式が無効です",
+    "firstNameLabel": "ファーストネーム",
+    "lastNameLabel": "ラストネーム",
+    "messageLabel": "メッセージ",
+    "submit": "メッセージを送信"
+  },
+  "cart": {
+    "viewCart": "カートを見る",
+    "checkout": "チェックアウト"
+  },
+  "common": {
+    "ok": "確認",
+    "search": "検索",
+    "cancel": "キャンセル",
+    "locale": "enUs",
+    "christmas": "クリスマス",
+    "birthday": "誕生日"
+  },
+  "header": {
+    "about": "当社について",
+    "home": "ホーム",
+    "menu": "メニュー",
+    "product": "製品",
+    "gallery": "ギャラリー",
+    "contact": "お問い合わせ",
+    "account": "アカウント",
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "register": "登録"
+  },
+  "homepage": {
+    "dailyCake": "デイリーケーキ",
+    "holidayPastries": "ホリデーペストリー",
+    "aboutDes": "ホリデーペストリー、喜びの場合に手作りされた楽しい精神を味わってください",
+    "searchPlaceholder": "検索...",
+    "search": "製品を探す",
+    "valentine": "バレンタイン"
+  },
+  "footer": {
+    "openTimes": "営業時間",
+    "day": "月曜日から土曜日：",
+    "closed": "閉まっています",
+    "sunday": "日曜日：",
+    "preOrder": "少なくとも24時間前に注文してください",
+    "contact": "お問い合わせ",
+    "address": "住所",
+    "phone": "電話番号"
+  },
+  "errorPage": {
+    "error404": "申し訳ありませんが、訪れたページは存在しません。"
+  }
+}

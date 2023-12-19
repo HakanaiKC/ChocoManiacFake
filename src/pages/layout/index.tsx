@@ -14,6 +14,8 @@ import {
   Button,
   theme,
   Drawer,
+  Modal,
+  Input,
 } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import ChocoLogo from "../../assets/logo/logo2.svg";
@@ -31,6 +33,7 @@ import {
   MailFilled,
   MenuOutlined,
   PhoneFilled,
+  SearchOutlined,
   ShoppingCartOutlined,
   UpOutlined,
 } from "@ant-design/icons";
@@ -52,6 +55,7 @@ const LayoutPage = () => {
   const { token } = useToken();
   const current = useSelector((state: RootState) => state.header.setCurrent);
   const [isDrawerOpen, setisDrawerOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const onClick: MenuProps["onClick"] = (e) => {
     dispatch(setCurrentLink(e.key));
@@ -134,12 +138,19 @@ const LayoutPage = () => {
               </Paragraph>
             </Space>
           </Col>
-          <Col className="button-hamburger-top" xs={5} sm={5}>
+          <Col className="button-hamburger-top" xs={4} sm={4}>
             <Button onClick={() => setisDrawerOpen(true)}>
               <MenuOutlined />
             </Button>
           </Col>
-          <Col className="right-col" xxl={12} xl={12} md={12} xs={19} sm={19}>
+          <Col className="right-col" xxl={12} xl={12} md={12} xs={20} sm={20}>
+            <Link
+              className="search-responsive"
+              onClick={() => setModalOpen(true)}
+            >
+              <SearchOutlined style={{ fontSize: "1.25em" }} />
+            </Link>
+
             <Dropdown
               placement="bottom"
               arrow
@@ -390,6 +401,43 @@ const LayoutPage = () => {
           <p>© 2024 CuongLK, All Rights Reserved</p>
         </div>
       </Footer>
+
+      <Modal
+        className="modal-search"
+        title={
+          <Typography.Title level={3} className="modal-header">
+            {t("homepage.search")}
+          </Typography.Title>
+        }
+        centered
+        open={modalOpen}
+        onCancel={() => setModalOpen(false)}
+        footer={[
+          <div className="button-modal-group">
+            <Button
+              key="cancel"
+              onClick={() => setModalOpen(false)}
+              className="cancelButton"
+            >
+              {t("common.cancel")}
+            </Button>
+            ,
+            <Button
+              key="submit"
+              className="searchButton"
+              onClick={() => setModalOpen(false)}
+            >
+              {t("common.search")}
+            </Button>
+          </div>,
+        ]}
+      >
+        <Input
+          size="large"
+          placeholder={t("homepage.searchPlaceholder")}
+          prefix={<SearchOutlined />}
+        />
+      </Modal>
     </Layout>
   );
 };

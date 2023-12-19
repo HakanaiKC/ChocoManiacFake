@@ -1,0 +1,57 @@
+{
+  "form": {
+    "name": "유효하지 않은 이름 형식",
+    "notEmpty": "이 필드는 필수입니다",
+    "email": "잘못된 이메일 형식",
+    "phone": "잘못된 전화번호 형식",
+    "firstNameLabel": "이름",
+    "lastNameLabel": "성",
+    "messageLabel": "메시지",
+    "submit": "메시지 보내기"
+  },
+  "cart": {
+    "viewCart": "장바구니 보기",
+    "checkout": "체크아웃"
+  },
+  "common": {
+    "ok": "확인",
+    "search": "검색",
+    "cancel": "취소",
+    "locale": "enUs",
+    "christmas": "크리스마스",
+    "birthday": "생일"
+  },
+  "header": {
+    "about": "회사 소개",
+    "home": "홈",
+    "menu": "메뉴",
+    "product": "제품",
+    "gallery": "갤러리",
+    "contact": "문의",
+    "account": "계정",
+    "login": "로그인",
+    "logout": "로그아웃",
+    "register": "회원가입"
+  },
+  "homepage": {
+    "dailyCake": "일일 케이크",
+    "holidayPastries": "휴일 페이스트리",
+    "aboutDes": "행복한 순간을 위해 수제로 만든 휴일 페이스트리를 만나보세요",
+    "searchPlaceholder": "검색...",
+    "search": "제품 찾기",
+    "valentine": "발렌타인"
+  },
+  "footer": {
+    "openTimes": "영업 시간",
+    "day": "월요일부터 토요일까지:",
+    "closed": "휴무일",
+    "sunday": "일요일:",
+    "preOrder": "최소 24시간 전에 주문하세요",
+    "contact": "연락하기",
+    "address": "주소",
+    "phone": "전화번호"
+  },
+  "errorPage": {
+    "error404": "죄송합니다, 방문하신 페이지는 존재하지 않습니다."
+  }
+}

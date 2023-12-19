@@ -240,17 +240,24 @@ body {
 
 @media screen and (max-width: 425px) {
   .top-header {
+    padding: 0 10px;
     .top-address {
       display: none;
     }
   }
 
   .button-hamburger {
-    display: none;
+    display: none !important;
   }
 
   .button-hamburger-top {
-    display: block;
+    display: unset;
+  }
+
+  .contact-hompage {
+    .ant-form-item {
+      margin-bottom: 5px;
+    }
   }
 }
 
