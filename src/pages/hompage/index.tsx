@@ -34,9 +34,9 @@ const HomePage: React.FC = () => {
   return (
     <>
       <div className="slide" style={{ margin: "auto" }}>
-        <Carousel autoplay draggable pauseOnHover autoplaySpeed={9000}>
-          <video src={video2} autoPlay loop muted playsInline />
+        <Carousel autoplay draggable autoplaySpeed={9000}>
           <video src={video1} autoPlay loop muted playsInline />
+          <video src={video2} autoPlay loop muted playsInline />
           <video src={video3} autoPlay loop muted playsInline />
           <video src={video4} autoPlay loop muted playsInline />
         </Carousel>

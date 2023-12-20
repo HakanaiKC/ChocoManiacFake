@@ -24,33 +24,11 @@ body {
 .layout-header {
   position: sticky;
   top: 60px;
-  z-index: 100;
   width: 100%;
   padding: 0;
   background-color: @cream;
 }
-.button-hamburger {
-  display: none;
-  background-color: white;
-  text-align: center;
-  position: sticky;
-  top: 60px;
-  z-index: 100;
-  width: 100%;
-  padding: 0;
-  button {
-    background-color: @DarkerchocoColor;
-    color: @cream;
-    font-size: 1.25em;
-    height: auto;
-    margin-top: 10px;
-    &:hover {
-      background-color: @veryDarkChocoColor;
-      border-color: @veryDarkChocoColor !important;
-      color: @cream !important;
-    }
-  }
-}
+
 .top-header {
   position: sticky;
   top: 0;
@@ -141,15 +119,21 @@ body {
     font-family: "Montserrat";
     font-size: 1.5em;
   }
-  .address .ant-typography {
-    color: @cream;
-    margin-left: 10px;
-    font-size: 1em;
-    font-family: "Montserrat";
+  .address {
+    .ant-typography {
+      color: @cream;
+      font-size: 1em;
+      font-family: "Montserrat";
+      a:hover {
+        color: @orange;
+      }
+      a {
+        margin-left: 5px;
+        color: @cream;
+      }
+    }
   }
-  .address a:hover {
-    color: @orange;
-  }
+
   .icon-social a {
     font-size: 2em;
     margin: 0 10px;
@@ -173,7 +157,7 @@ body {
   .bottom-footer {
     border-top: 1px solid @cream;
     color: @cream;
-    font-family: "Montserrat";
+    font-family: "Lobster";
     font-size: 1em;
   }
 
@@ -184,7 +168,7 @@ body {
   .open-time-row .gutter-row .ant-typography {
     color: @cream;
     font-family: "Montserrat";
-    font-size: 1.25em;
+    font-size: 1em;
   }
 }
 
@@ -228,33 +212,27 @@ body {
   .layout-header {
     display: none;
   }
-  .button-hamburger {
-    display: block;
+
+  .button-hamburger-top {
+    display: unset;
   }
+
   .header-menu {
     .login-link,
     .register-link {
       display: block;
     }
   }
-}
 
-@media screen and (max-width: 425px) {
   .top-header {
     padding: 0 10px;
     .top-address {
       display: none;
     }
   }
+}
 
-  .button-hamburger {
-    display: none !important;
-  }
-
-  .button-hamburger-top {
-    display: unset;
-  }
-
+@media screen and (max-width: 425px) {
   .contact-hompage {
     .ant-form-item {
       margin-bottom: 5px;

@@ -14,8 +14,6 @@ import {
   Button,
   theme,
   Drawer,
-  Modal,
-  Input,
 } from "antd";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import ChocoLogo from "../../assets/logo/logo2.svg";
@@ -23,8 +21,7 @@ import { Suspense, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import Title from "antd/es/typography/Title";
 import Paragraph from "antd/es/typography/Paragraph";
-import Link from "antd/es/typography/Link";
-import { Link as LinkRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { MenuComponentHeader } from "../../components/menuComponent";
 import {
   CloseOutlined,
@@ -46,6 +43,7 @@ import daily1 from "../../assets/menu/daily/choco-set.jpg";
 import daily2 from "../../assets/menu/daily/chocoOrange-2.jpg";
 import daily3 from "../../assets/menu/daily/dark-oreo-2.jpg";
 import React from "react";
+import SearchBar from "../../components/searchComponent";
 
 const LayoutPage = () => {
   const { i18n, t } = useTranslation("global");
@@ -55,7 +53,11 @@ const LayoutPage = () => {
   const { token } = useToken();
   const current = useSelector((state: RootState) => state.header.setCurrent);
   const [isDrawerOpen, setisDrawerOpen] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
+  const [showSearchBar, setShowSearchBar] = useState(false);
+
+  const toggleSearchBar = () => {
+    setShowSearchBar(!showSearchBar);
+  };
 
   const onClick: MenuProps["onClick"] = (e) => {
     dispatch(setCurrentLink(e.key));
@@ -127,12 +129,12 @@ const LayoutPage = () => {
           <Col className="top-address" xxl={12} xl={12} md={12}>
             <Space>
               <Paragraph className="top-header-contact">
-                <Link href="mailto:chocomaniaccake@gmail.com">
+                <Link to="mailto:chocomaniaccake@gmail.com">
                   <MailFilled /> chocomaniaccake@gmail.com
                 </Link>
               </Paragraph>
               <Paragraph className="top-header-contact">
-                <Link href="tel:0927519915">
+                <Link to="tel:0927519915">
                   <PhoneFilled /> 092 751 99 15
                 </Link>
               </Paragraph>
@@ -144,12 +146,12 @@ const LayoutPage = () => {
             </Button>
           </Col>
           <Col className="right-col" xxl={12} xl={12} md={12} xs={20} sm={20}>
-            <Link
-              className="search-responsive"
-              onClick={() => setModalOpen(true)}
-            >
-              <SearchOutlined style={{ fontSize: "1.25em" }} />
+            <Link to={""} onClick={toggleSearchBar}>
+              <SearchOutlined
+                style={{ fontSize: "20px", padding: "20px 0 20px 20px" }}
+              />
             </Link>
+            {showSearchBar && <SearchBar onClose={toggleSearchBar} />}
 
             <Dropdown
               placement="bottom"
@@ -163,7 +165,7 @@ const LayoutPage = () => {
                   <Divider style={{ margin: 0 }} />
                   <Row style={{ padding: 8 }} gutter={10}>
                     <Col xxl={12} xl={12} md={12} xs={24} sm={24}>
-                      <LinkRouter
+                      <Link
                         to="/cart"
                         onClick={() => dispatch(setCurrentLink(""))}
                       >
@@ -178,10 +180,10 @@ const LayoutPage = () => {
                         >
                           {t("cart.viewCart")}
                         </Button>
-                      </LinkRouter>
+                      </Link>
                     </Col>
                     <Col xxl={12} xl={12} md={12} xs={24} sm={24}>
-                      <LinkRouter
+                      <Link
                         to="/checkout"
                         onClick={() => dispatch(setCurrentLink(""))}
                       >
@@ -196,13 +198,13 @@ const LayoutPage = () => {
                         >
                           {t("cart.checkout")}
                         </Button>
-                      </LinkRouter>
+                      </Link>
                     </Col>
                   </Row>
                 </div>
               )}
             >
-              <Link className="cart-icon">
+              <Link to={""} className="cart-icon">
                 <ShoppingCartOutlined style={{ fontSize: "1.5em" }} />
                 <Typography.Text className="cart-item-number" strong>
                   99+
@@ -210,20 +212,20 @@ const LayoutPage = () => {
               </Link>
             </Dropdown>
 
-            <LinkRouter
+            <Link
               className="login-link"
               to="/login"
               onClick={() => dispatch(setCurrentLink(""))}
             >
               {t("header.login")}
-            </LinkRouter>
-            <LinkRouter
+            </Link>
+            <Link
               className="register-link"
               to="/register"
               onClick={() => dispatch(setCurrentLink(""))}
             >
               {t("header.register")}
-            </LinkRouter>
+            </Link>
             <Select
               defaultValue={i18n.language}
               style={{ width: "120px" }}
@@ -246,12 +248,6 @@ const LayoutPage = () => {
       </div>
       <Header className="layout-header">
         <MenuComponentHeader inLine onClick={onClick} current={current} />
-      </Header>
-
-      <Header className="button-hamburger">
-        <Button onClick={() => setisDrawerOpen(true)}>
-          <MenuOutlined />
-        </Button>
       </Header>
 
       <Drawer
@@ -351,10 +347,10 @@ const LayoutPage = () => {
                   Don't be shy if you are too Choco-NUTS
                 </Paragraph>
                 <div className="icon-social">
-                  <Link href="https://www.facebook.com/profile.php?id=100064071968092">
+                  <Link to="https://www.facebook.com/profile.php?id=100064071968092">
                     <FacebookFilled />
                   </Link>
-                  <Link href="https://www.instagram.com/chocomaniac.cake">
+                  <Link to="https://www.instagram.com/chocomaniac.cake">
                     <InstagramFilled />
                   </Link>
                 </div>
@@ -376,21 +372,21 @@ const LayoutPage = () => {
                   <Paragraph>
                     {t("footer.address")}:
                     <Link
-                      href="https://maps.app.goo.gl/DW2iqRcpwZ5Znz1K8"
+                      to="https://maps.app.goo.gl/WgdrSftUupZSdXfe7"
                       target="_blank"
                     >
-                      7 Trần Thánh Tông, P. Bạch Đằng, Hai Bà Trưng, Hà Nội
+                      Hai Bà Trưng, Hà Nội
                     </Link>
                   </Paragraph>
                   <Paragraph>
                     Email:
-                    <Link href="mailto:chocomaniaccake@gmail.com">
+                    <Link to="mailto:chocomaniaccake@gmail.com">
                       chocomaniaccake@gmail.com
                     </Link>
                   </Paragraph>
                   <Paragraph>
                     {t("footer.phone")}:
-                    <Link href="tel:0927519915">092 751 99 15</Link>
+                    <Link to="tel:0927519915">092 751 99 15</Link>
                   </Paragraph>
                 </div>
               </div>
@@ -401,43 +397,6 @@ const LayoutPage = () => {
           <p>© 2024 CuongLK, All Rights Reserved</p>
         </div>
       </Footer>
-
-      <Modal
-        className="modal-search"
-        title={
-          <Typography.Title level={3} className="modal-header">
-            {t("homepage.search")}
-          </Typography.Title>
-        }
-        centered
-        open={modalOpen}
-        onCancel={() => setModalOpen(false)}
-        footer={[
-          <div className="button-modal-group">
-            <Button
-              key="cancel"
-              onClick={() => setModalOpen(false)}
-              className="cancelButton"
-            >
-              {t("common.cancel")}
-            </Button>
-            ,
-            <Button
-              key="submit"
-              className="searchButton"
-              onClick={() => setModalOpen(false)}
-            >
-              {t("common.search")}
-            </Button>
-          </div>,
-        ]}
-      >
-        <Input
-          size="large"
-          placeholder={t("homepage.searchPlaceholder")}
-          prefix={<SearchOutlined />}
-        />
-      </Modal>
     </Layout>
   );
 };

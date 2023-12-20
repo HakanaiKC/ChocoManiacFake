@@ -1,0 +1,80 @@
+@import "../pages/global.less";
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.overlay-search {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(27, 17, 15, 0.7);
+  z-index: 999999;
+  animation: fadeIn 0.3s ease-out forwards;
+
+  .closed-search {
+    color: @cream;
+    padding: 30px;
+    font-size: 3em;
+    &:hover {
+      color: rgba(243, 237, 225, 0.5) !important;
+    }
+  }
+  .searchBar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 0 30px;
+    .ant-input-affix-wrapper-lg {
+      border: none;
+      background-color: transparent;
+
+      &:focus-within {
+        box-shadow: none;
+        -webkit-box-shadow: none;
+      }
+
+      input {
+        background-color: transparent;
+        width: 100%;
+        color: @cream;
+        border-bottom: 1px solid @cream;
+        font-size: 1em;
+      }
+      input::placeholder {
+        color: rgba(243, 237, 225, 0.5);
+      }
+      input:focus {
+        font-size: 1.5em;
+      }
+    }
+
+    .ant-btn-link {
+      border: none;
+      background: transparent;
+      color: @cream;
+      font-size: 2em;
+      height: 60px;
+      &:hover {
+        color: rgba(243, 237, 225, 0.5) !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .overlay-search .searchBar {
+    padding: 0 10px;
+  }
+}
