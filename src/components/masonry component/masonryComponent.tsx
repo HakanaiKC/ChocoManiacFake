@@ -38,9 +38,11 @@ const MansoryComponent = ({
           <Link to={`/products`}>
             <img src={src} alt={items[index].name} />
           </Link>
-          <div className="product-info">
-            <Typography.Text>{items[index].name}</Typography.Text>
-          </div>
+          {items[index].name && (
+            <div className="product-info">
+              <Typography.Text>{items[index].name}</Typography.Text>
+            </div>
+          )}
           {items[index].price && (
             <div className="product-price">
               <Space direction="vertical">
@@ -54,7 +56,7 @@ const MansoryComponent = ({
             </div>
           )}
           <div className="product-cart">
-            <Link to={`/cart`} className="hover-underline-animate">
+            <Link to={``} className="hover-underline-animate">
               <Typography.Text>{t("cart.add")}</Typography.Text>
             </Link>
           </div>

@@ -1,6 +1,4 @@
 import { useTranslation } from "react-i18next";
-import PageTitle from "../../components/breadcrum component/breadcrumbComponent";
-import { Link } from "react-router-dom";
 import MansoryComponent from "../../components/masonry component/masonryComponent";
 import { Typography } from "antd";
 
@@ -144,13 +142,6 @@ const Gallery = () => {
   const { t } = useTranslation("global");
   return (
     <>
-      <PageTitle
-        title={t("header.gallery")}
-        item={[
-          { title: <Link to="/">{t("header.home")}</Link> },
-          { title: t("header.gallery") },
-        ]}
-      />
       <div className="gallery-wrapper" style={{ padding: "30px" }}>
         <Typography.Title
           level={2}
