@@ -22,7 +22,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import Title from "antd/es/typography/Title";
 import Paragraph from "antd/es/typography/Paragraph";
 import { Link } from "react-router-dom";
-import { MenuComponentHeader } from "../../components/menuComponent";
+import { MenuComponentHeader } from "../../components/menu component/menuComponent";
 import {
   CloseOutlined,
   FacebookFilled,
@@ -43,7 +43,7 @@ import daily1 from "../../assets/menu/daily/choco-set.jpg";
 import daily2 from "../../assets/menu/daily/chocoOrange-2.jpg";
 import daily3 from "../../assets/menu/daily/dark-oreo-2.jpg";
 import React from "react";
-import SearchBar from "../../components/searchComponent";
+import SearchBar from "../../components/search component/searchComponent";
 
 const LayoutPage = () => {
   const { i18n, t } = useTranslation("global");
@@ -146,7 +146,7 @@ const LayoutPage = () => {
             </Button>
           </Col>
           <Col className="right-col" xxl={12} xl={12} md={12} xs={20} sm={20}>
-            <Link to={""} onClick={toggleSearchBar}>
+            <Link to={"#"} onClick={toggleSearchBar}>
               <SearchOutlined
                 style={{ fontSize: "20px", padding: "20px 0 20px 20px" }}
               />
@@ -352,6 +352,36 @@ const LayoutPage = () => {
                   </Link>
                   <Link to="https://www.instagram.com/chocomaniac.cake">
                     <InstagramFilled />
+                  </Link>
+                  <Link to="https://shopeefood.vn/ha-noi/chocomaniac-tiem-banh-online">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      x="0px"
+                      y="0px"
+                      width="28"
+                      height="28"
+                      viewBox="0,0,256,256"
+                    >
+                      <g
+                        fill="#f3ede1"
+                        fill-rule="nonzero"
+                        stroke="none"
+                        stroke-width="1"
+                        stroke-linecap="butt"
+                        stroke-linejoin="miter"
+                        stroke-miterlimit="10"
+                        stroke-dasharray=""
+                        stroke-dashoffset="0"
+                        font-family="none"
+                        font-weight="none"
+                        font-size="none"
+                        text-anchor="none"
+                      >
+                        <g transform="scale(10.66667,10.66667)">
+                          <path d="M22.57,4.543c-0.29,-0.31 -0.7,-0.49 -1.13,-0.49h-4.54c-0.46,-2.28 -2.48,-4.01 -4.9,-4.01c-2.42,0 -4.44,1.73 -4.9,4.01h-4.54c-0.43,0 -0.84,0.18 -1.13,0.49c-0.29,0.31 -0.45,0.73 -0.43,1.149l0.71,15.25c0.08,1.74 1.5,3.1 3.23,3.1h14.12c1.73,0 3.15,-1.36 3.23,-3.1l0.71,-15.25c0.02,-0.419 -0.14,-0.839 -0.43,-1.149zM12,2.043c1.31,0 2.41,0.84 2.82,2.01h-5.64c0.41,-1.171 1.51,-2.01 2.82,-2.01zM11.97,20.003c-2.49,0 -4.25,-1.77 -4.25,-1.77l1.1,-1.75c0,0 1.99,1.49 3.15,1.49c1.12,0 2.06,-0.62 2.06,-1.35c0,-0.92 -0.6,-1.29 -2.41,-1.95c-1.55,-0.57 -3.46,-1.27 -3.46,-3.43c0,-1.88 1.67,-3.3 3.88,-3.3c2.48,0 3.8,1.39 3.8,1.39l-1.04,1.72c0,0 -1.52,-1.09 -2.76,-1.09c-1.08,0 -1.86,0.54 -1.86,1.28c0,0.64 0.56,0.96 2.13,1.53c1.58,0.57 3.75,1.36 3.75,3.85c0,1.9 -1.8,3.38 -4.09,3.38z"></path>
+                        </g>
+                      </g>
+                    </svg>
                   </Link>
                 </div>
               </div>

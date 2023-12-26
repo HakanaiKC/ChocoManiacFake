@@ -10,10 +10,10 @@ import {
   Button,
   Input,
 } from "antd";
-import video1 from "../../assets/slides/1.mp4";
-import video2 from "../../assets/slides/2.mp4";
-import video3 from "../../assets/slides/3.mp4";
-import video4 from "../../assets/slides/4.mp4";
+import slide1 from "../../assets/slides/1.png";
+import slide2 from "../../assets/slides/2.png";
+import slide3 from "../../assets/slides/3.png";
+import slide4 from "../../assets/slides/4.png";
 import giangSinhVid from "../../assets/menu/christmas/giang-sinh-vid.mp4";
 import valentineVid from "../../assets/menu/valentine/valentine-video.mp4";
 import birthdayVid from "../../assets/menu/sinh-nhat/birthday-vid-1.mp4";
@@ -25,20 +25,65 @@ import {
   nameValidator,
   phoneValidator,
 } from "../../constants/inputs/contact";
-import MansoryComponent from "../../components/masonryComponent";
+import MansoryComponent from "../../components/masonry component/masonryComponent";
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation("global");
   const [form] = Form.useForm();
 
+  const items = [
+    {
+      src: () => import("../../assets/menu/daily/choco-set.jpg"),
+      name: "basque burnt cheesecake",
+      price: "62k/pc",
+      additional: "120k/set",
+    },
+    {
+      src: () => import("../../assets/menu/daily/chocoOrange-2.jpg"),
+      name: "choco orange",
+      price: "55k/2pcs",
+    },
+    {
+      src: () => import("../../assets/menu/daily/dark-oreo-2.jpg"),
+      name: "dark oreo",
+      price: "65k/box",
+    },
+    {
+      src: () => import("../../assets/menu/daily/double-chocolate.jpg"),
+      name: "double chocolate cup",
+      price: "50k/2pcs",
+    },
+    {
+      src: () => import("../../assets/menu/daily/tiramisu-cup-1.jpg"),
+      name: "chocomisu",
+      price: "55k",
+    },
+    {
+      src: () => import("../../assets/menu/daily/red-velvet-roll-2.jpg"),
+      name: "red & roll",
+      price: "65k/box",
+    },
+    {
+      src: () => import("../../assets/menu/daily/brownie-2.jpg"),
+      name: "cheese brownies",
+      price: "75k/box",
+      additional: "150g - 180g",
+    },
+    {
+      src: () => import("../../assets/menu/daily/daily-cup-red-velvet.png"),
+      name: "red velvet",
+      price: "55k",
+    },
+  ];
+
   return (
     <>
-      <div className="slide" style={{ margin: "auto" }}>
+      <div className="slide">
         <Carousel autoplay draggable autoplaySpeed={9000}>
-          <video src={video1} autoPlay loop muted playsInline />
-          <video src={video2} autoPlay loop muted playsInline />
-          <video src={video3} autoPlay loop muted playsInline />
-          <video src={video4} autoPlay loop muted playsInline />
+          <img src={slide4} alt="christmas menu" />
+          <img src={slide1} alt="daily menu" />
+          <img src={slide2} alt="random" />
+          <img src={slide3} alt="valentine menu" />
         </Carousel>
       </div>
       <div className="homepage-wrapper daily">
@@ -47,7 +92,10 @@ const HomePage: React.FC = () => {
             {t("homepage.dailyCake")}
           </Typography.Title>
           <Typography.Title level={4}>{t("footer.preOrder")}</Typography.Title>
-          <MansoryComponent />
+          <MansoryComponent
+            items={items}
+            column={{ 425: 1, 640: 2, 768: 2, 1024: 3, 1280: 4 }}
+          />
         </div>
       </div>
       <div className="homepage-wrapper about-us">
@@ -74,7 +122,6 @@ const HomePage: React.FC = () => {
           </Typography.Text>
         </Space>
       </div>
-
       <div className="homepage-wrapper special-day">
         <div className="homepage-title">
           <Typography.Title level={2}>
@@ -105,14 +152,13 @@ const HomePage: React.FC = () => {
       </div>
       <div className="homepage-wrapper contact-hompage">
         <div className="homepage-title">
-          <Typography.Title level={2}>{t("header.contact")}</Typography.Title>
+          <Typography.Title level={2}>{t("homepage.contact")}</Typography.Title>
           <Form form={form} layout="vertical" autoComplete="on">
             <Row
               justify="space-between"
               align="top"
               gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
             >
-              <Space></Space>
               <Col span={12}>
                 <Form.Item
                   name="firstName"
@@ -153,7 +199,6 @@ const HomePage: React.FC = () => {
                   name="email"
                   label="Email"
                   rules={[
-                    { required: true, message: t("form.notEmpty") },
                     {
                       validator: (_, value) => emailValidator(_, value, t),
                     },
@@ -167,6 +212,7 @@ const HomePage: React.FC = () => {
                   name="phone"
                   label={t("footer.phone")}
                   rules={[
+                    { required: true, message: t("form.notEmpty") },
                     { validator: (_, value) => phoneValidator(_, value, t) },
                   ]}
                 >

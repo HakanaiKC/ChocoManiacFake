@@ -11,7 +11,8 @@
   },
   "cart": {
     "viewCart": "カートを見る",
-    "checkout": "チェックアウト"
+    "checkout": "チェックアウト",
+    "add": "カートに追加"
   },
   "common": {
     "ok": "確認",
@@ -38,7 +39,9 @@
     "holidayPastries": "ホリデーペストリー",
     "aboutDes": "ホリデーペストリー、喜びの場合に手作りされた楽しい精神を味わってください",
     "searchPlaceholder": "検索...",
-    "valentine": "バレンタイン"
+    "valentine": "バレンタイン",
+    "contact": "夢のケーキを注文しよう!",
+    "order": "リクエストに応じてケーキ"
   },
   "footer": {
     "openTimes": "営業時間",

@@ -1,9 +1,8 @@
-import "./modalSearch.less";
 import { Menu } from "antd";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setCurrentLink } from "../stores/headerSlice";
+import { setCurrentLink } from "../../stores/headerSlice";
 
 export const MenuComponentHeader = ({
   onClick,

@@ -11,7 +11,8 @@
   },
   "cart": {
     "viewCart": "Giỏ hàng",
-    "checkout": "Thanh toán"
+    "checkout": "Thanh toán",
+    "add": "Thêm vào giỏ hàng"
   },
   "common": {
     "ok": "Đồng ý",
@@ -38,7 +39,9 @@
     "holidayPastries": "Bánh ngày lễ",
     "aboutDes": "Tận hưởng ngày lễ cùng những chiếc bánh ngọt được làm thủ công",
     "searchPlaceholder": "Tìm sản phẩm...",
-    "valentine": "Valentine"
+    "valentine": "Valentine",
+    "contact": "Đặt bánh theo yêu cầu",
+    "order": "Bánh theo yêu cầu"
   },
   "footer": {
     "openTimes": "Giờ mở cửa",

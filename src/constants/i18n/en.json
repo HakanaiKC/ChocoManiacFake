@@ -11,7 +11,8 @@
   },
   "cart": {
     "viewCart": "View Cart",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "add": "Add to cart"
   },
   "common": {
     "ok": "Confirm",
@@ -38,7 +39,9 @@
     "holidayPastries": "Holiday Pastries",
     "aboutDes": "Savor the festive spirit with our Holiday Pastries, handcrafted for joyous occasions",
     "searchPlaceholder": "Search...",
-    "valentine": "Valentine"
+    "valentine": "Valentine",
+    "contact": "Order your dream cake",
+    "order": "Cake on request"
   },
   "footer": {
     "openTimes": "Open times",

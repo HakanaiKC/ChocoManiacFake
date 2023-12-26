@@ -7,7 +7,7 @@ const SearchBar = ({ onClose }: { onClose: any }) => {
   const { t } = useTranslation("global");
 
   return (
-    <div className={`overlay-search ${onClose ? "" : "fadeOut"}`}>
+    <div className={`overlay-search`}>
       <CloseOutlined onClick={onClose} className="closed-search" />
       <Flex className="searchBar">
         <Input
