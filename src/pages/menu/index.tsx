@@ -1,7 +1,7 @@
 import { Typography } from "antd";
 
-const Menu = () => {
-  return <Typography>Menu</Typography>;
+const MenuPage = () => {
+  return <Typography>MenuPage</Typography>;
 };
 
-export default Menu;
+export default MenuPage;

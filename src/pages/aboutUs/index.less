@@ -1,0 +1,128 @@
+@import "../global.less";
+
+.about-us-page {
+  .background {
+    background-image: url("../../assets/bg/bg.jpg");
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .specialities {
+    padding: 100px;
+    .ant-typography {
+      padding: 0 50px;
+    }
+  }
+
+  .open-time {
+    padding: 100px;
+    h2.ant-typography {
+      font-family: "Cormorant", serif;
+      text-transform: uppercase;
+      font-size: 3.5em;
+      margin-top: 0;
+    }
+    .ant-typography {
+      font-size: 1.25em;
+      margin-bottom: 0;
+    }
+    .row {
+      border-bottom: 0.5px solid gray;
+      margin-top: 28px;
+      .day {
+        font-family: "Cormorant", serif;
+        font-weight: 500;
+        font-size: 2.2em;
+      }
+      .time {
+        margin-top: 12px;
+      }
+    }
+  }
+
+  .open-time-content {
+    padding: 0 90px;
+    order: 1;
+  }
+  .open-time-img {
+    order: 2;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .about-us-page {
+    .specialities {
+      padding: 30px;
+    }
+
+    .open-time {
+      padding: 30px;
+    }
+
+    .open-time-content {
+      padding: 0 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-us-page {
+    .background {
+      height: 300px;
+    }
+  }
+
+  .about-us-page {
+    .specialities {
+      padding: 20px;
+      .ant-typography {
+        padding: 0 20px;
+      }
+    }
+    .open-time {
+      h2.ant-typography {
+        font-size: 2em;
+      }
+      .ant-typography {
+        font-size: 1em;
+      }
+      .row {
+        .day {
+          font-size: 1.5em;
+        }
+        .time {
+          margin-top: 7px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .about-us-page {
+    .background {
+      height: 200px;
+    }
+    .specialities {
+      padding: 20px 10px;
+    }
+    .open-time {
+      padding: 10px;
+      .open-time-row {
+        display: block;
+        .open-time-content {
+          text-align: center;
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+}
+
+@media screen and (max-width: 320px) {
+}

@@ -129,13 +129,13 @@ const LayoutPage = () => {
           <Col className="top-address" xxl={12} xl={12} md={12}>
             <Space>
               <Paragraph className="top-header-contact">
-                <Link to="mailto:chocomaniaccake@gmail.com">
-                  <MailFilled /> chocomaniaccake@gmail.com
+                <Link to="mailto:chocomaniacfake@veryfake.com">
+                  <MailFilled /> chocomaniacfake@veryfake.com
                 </Link>
               </Paragraph>
               <Paragraph className="top-header-contact">
-                <Link to="tel:0927519915">
-                  <PhoneFilled /> 092 751 99 15
+                <Link to="">
+                  <PhoneFilled /> 092 751 99 xx
                 </Link>
               </Paragraph>
             </Space>
@@ -410,13 +410,12 @@ const LayoutPage = () => {
                   </Paragraph>
                   <Paragraph>
                     Email:
-                    <Link to="mailto:chocomaniaccake@gmail.com">
-                      chocomaniaccake@gmail.com
+                    <Link to="mailto:chocomaniacfake@veryfake.com">
+                      chocomaniacfake@veryfake.com
                     </Link>
                   </Paragraph>
                   <Paragraph>
-                    {t("footer.phone")}:
-                    <Link to="tel:0927519915">092 751 99 15</Link>
+                    {t("footer.phone")}:<Link to="">092 751 99 xx</Link>
                   </Paragraph>
                 </div>
               </div>

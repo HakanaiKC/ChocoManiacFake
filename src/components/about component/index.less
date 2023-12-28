@@ -1,0 +1,59 @@
+@import "../../pages/global.less";
+.about-us {
+  padding: 50px;
+  text-align: center;
+  background-image: url("../../assets/about/aboutBg.jpg");
+  background-size: cover;
+  background-position: center;
+  h2 {
+    color: @veryDarkChocoColor;
+  }
+  video {
+    height: 500px;
+  }
+
+  .about-title {
+    h2 {
+      font-family: "Great Vibes";
+      letter-spacing: 5px;
+      font-size: 3.75em;
+      text-transform: capitalize;
+    }
+  }
+
+  .about-wrapper {
+    background-color: @chocoColor;
+    padding: 30px;
+    width: 600px;
+    margin-top: -20px;
+    .ant-typography {
+      color: @cream;
+    }
+    h3 {
+      font-family: "Lobster";
+      font-size: 2em;
+    }
+    img {
+      width: 100px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-us {
+    .about-wrapper {
+      padding: 19.5px;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .about-us {
+    display: block;
+    padding: 10px;
+    .about-wrapper {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+}

@@ -9,7 +9,7 @@ const ProductDetail = lazy(() => import("../pages/shop/productDetail"));
 const Gallery = lazy(() => import("../pages/gallery"));
 const Contact = lazy(() => import("../pages/contact"));
 const MyAccount = lazy(() => import("../pages/myAccount"));
-const Menu = lazy(() => import("../pages/menu"));
+const MenuPage = lazy(() => import("../pages/menu"));
 const ForgotPassword = lazy(() => import("../pages/auth/forgotPassword"));
 const Login = lazy(() => import("../pages/auth/login"));
 const Logout = lazy(() => import("../pages/auth/logout"));
@@ -80,7 +80,7 @@ const routesList: RouteObject[] = [
       },
       {
         path: "/menu",
-        element: <Menu />,
+        element: <MenuPage />,
       },
       {
         path: "/cart",
